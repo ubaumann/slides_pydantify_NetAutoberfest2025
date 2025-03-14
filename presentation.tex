@@ -87,8 +87,39 @@
   \framesubtitle{History}
   \begin{itemize}
     \setlength\itemsep{1em}
-    \item SA
+    \item Midterm Project; Walther, Dominic and Jovicic, Dejan (2023) Make Model Driven Network Automation Pythonic; \url{https://eprints.ost.ch/id/eprint/1089/}; Eastern Switzerland University of Applied Sciences
+    \item v0.5.0 \url{https://pypi.org/project/pydantify/0.5.0} Dec, 2022
+    \item v0.6.0 Pydantic v2 Oct, 2024
+    \item v0.7.0 Improve types like decimal64 Jan, 2025
+    \item v0.8.0 Fix mandatory list keys Feb, 2025
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.3,
+fontsize=\normalsize,
+linenos]{django}
+<config>
+<if:interfaces xmlns:if="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+{% for interface in vlan_interfaces %}
+  <if:interface>
+    <if:name>Vlanif{{ interface.name }}</if:name>
+    <if:description>uplink</if:description>
+    <if:type xmlns:iana-if-type="urn:ietf:params:xml:ns:yang:iana-if-type">iana-if-type:propVirtual</if:type>
+    <ip:ipv4 xmlns:ip="urn:ietf:params:xml:ns:yang:ietf-ip">
+      <ip:address>
+        <ip:ip>{{ interface.ip.split("/")[0] }}</ip:ip>
+        <ip:prefix-length>{{ interface.ip.split("/")[1] }}</ip:prefix-length>
+      </ip:address>
+    </ip:ipv4>
+  </if:interface>
+{% endfor %}
+</if:interfaces>
+</config>
+\end{minted}
 \end{frame}
 
 
