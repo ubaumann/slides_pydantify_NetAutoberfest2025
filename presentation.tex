@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+
+\documentclass[aspectratio=169]{beamer}
+% Template: https://github.com/kai-tub/latex-beamer-pure-minimalistic
+%%%% Theme settings %%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetheme[nofooterlogo, showmaxslides, darkmode]{pureminimalistic}
+
+\graphicspath{ {./images/}{./logo/} }
+
+% Logos
+\renewcommand{\logotitle}{\includegraphics%
+  [width=.05\linewidth]{logos/iac_logo.png}}
+\renewcommand{\logoheader}{\includegraphics%
+  [width=.2\linewidth]{logos/iac_logo.png}}
+\renewcommand{\logofooter}{}
+
+% Colors
+% \definecolor{title}{RGB}{255, 255, 0} % Yellow
+% \definecolor{title}{RGB}{172, 71, 189} % NetAutLabs
+\definecolor{title}{RGB}{255, 255, 255}
+\renewcommand{\beamertitlecolor}{title}
+
+% Code
+\usepackage{listings}
+\usepackage{minted}
+\usemintedstyle{rrt}
+
+% Notes
+\setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}
+%\setbeameroption{show notes on second screen=right}
+% \setbeameroption{show notes}
+
+\title{Pydantify}
+\author{Urs Baumann}
+% \institute{Swisscom}
+\date{25.09.2024}
+
+\begin{document}
+
+
+{
+% Set background image for the first page
+\setbeamertemplate{background}
+% {
+%   \includegraphics[height=\paperheight]{images/AutoCon_0-108.jpg}
+% }
+\frame{\titlepage}
+}
+
+
+\begin{frame}[fragile]
+  \frametitle{Urs Baumann}
+
+  \begin{minted}[fontsize=\small]{python}
+>>> qr = QRCode()
+>>> qr.add_data("https://www.linkedin.com/in/ubaumannch")
+>>> qr.print_ascii()
+  \end{minted}
+  % \begin{minted}[fontsize=\tiny]{text}
+  %     █▀▀▀▀▀█ ▄ █▄▄ ▀█ ▀██▄ █▀▀▀▀▀█
+  %     █ ███ █  ▀▄██ ▄▀  ▄█▀ █ ███ █
+  %     █ ▀▀▀ █ ▀▀▄ ▄█▀█ ███  █ ▀▀▀ █
+  %     ▀▀▀▀▀▀▀ ▀ █▄▀▄▀ █▄█ █ ▀▀▀▀▀▀▀
+  %     ▀ █▄▀▄▀  █▀ ▀▀▀▀█▀▀▀▀▄▄ ▀▄ ▀▄
+  %     ▄▀▀▄ ▄▀███▄█▄█▄▄ █▄ ██  ▄ ▀█▀
+  %     ▀█▄▄▄ ▀▄ ▄█▄▀ ▀ █▀ ▀███▄ █ ▀█
+  %     ▄██ █ ▀█ ▄▄▀▀▀ ▄▄▄█▄   ▀ █ █▀
+  %     ▀▀█▄▀ ▀▀   ▄█▄ ▀█▀ ▀███▀ █▄▀█
+  %     ▀▄▄█▄▀▀ ▀▄   ▄█▄▄█ ▄██▄▀ ▄ █▀
+  %     ▀  ▀ ▀▀ █▄██  █ ▄▀▀▄█▀▀▀█ ▄▄▄
+  %     █▀▀▀▀▀█  ▄▀▄▀▀ ▄ █▄▀█ ▀ ██ ▀█
+  %     █ ███ █ ▀██▀▀▄  ██▄ ▀▀▀▀█ ▄██
+  %     █ ▀▀▀ █ ▀ ▄▄█ █ ▀▄▄██▄▄▀█▀ ▄▀
+  %     ▀▀▀▀▀▀▀ ▀▀ ▀▀▀▀ ▀▀ ▀▀▀ ▀▀▀ ▀▀
+  % \end{minted}
+
+  \includegraphics[height = 0.6\textheight]{images/qrcode.png}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pydantify}
+  \framesubtitle{History}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item SA
+  \end{itemize}
+\end{frame}
+
+
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain,c]
+  \begin{center}
+    \Huge \color[rgb]{1,1,1}Questions?
+  \end{center}
+\end{frame}
+}
+\end{document}

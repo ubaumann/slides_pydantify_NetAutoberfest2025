@@ -1,0 +1,76 @@
+{
+    "name": "latex",
+    "image": "registry.gitlab.ost.ch:45023/ins-public/latex/devcontainer-ctan",
+    "shutdownAction": "stopContainer",
+    "onCreateCommand": "",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop@8.8.0",
+                "znck.grammarly"
+            ],
+            "settings": {
+                "latex-workshop.linting.chktex.enabled": true,
+                "latex-workshop.latex.clean.subfolder.enabled": true,
+                "editor.formatOnSave": true,
+                "latex-workshop.view.pdf.viewer": "tab",
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "latex-workshop.latex.recipe.default": "latexmk",
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk",
+                        "tools": [
+                            "latexmk"
+                        ]
+                    }
+                ],
+                "latex-workshop.latex.magic.args": [
+                    "-synctex=1",
+                    "-shell-escape",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "%DOC%"
+                ],
+                "latex-workshop.latex.clean.fileTypes": [
+                    "*.aux",
+                    "*.bbl",
+                    "*.blg",
+                    "*.idx",
+                    "*.ind",
+                    "*.lof",
+                    "*.lot",
+                    "*.out",
+                    "*.toc",
+                    "*.acn",
+                    "*.acr",
+                    "*.alg",
+                    "*.glg",
+                    "*.glo",
+                    "*.gls",
+                    "*.fls",
+                    "*.log",
+                    "*.fdb_latexmk",
+                    "*.snm",
+                    "*.synctex(busy)",
+                    "*.synctex.gz(busy)",
+                    "*.nav",
+                    "*.bcf",
+                    "*.run.xml",
+                    "*-body.tex",
+                    "*.synctex.gz",
+                    "*.synctex.gz(busy)",
+                    "*.hst",
+                    "*.ver",
+                    "*.ilg",
+                    "*.xsim"
+                ],
+                "latex-workshop.latex.build.forceRecipeUsage": false,
+                "grammarly.files.include": [
+                    "**/*.txt",
+                    "**/*.md",
+                    "**/*.tex"
+                ]
+            }
+        }
+    }
+}
