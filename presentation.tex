@@ -28,6 +28,10 @@
 \usepackage{minted}
 \usemintedstyle{rrt}
 
+% Animation
+\usepackage{animate}
+
+
 % Notes
 \setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}
 %\setbeameroption{show notes on second screen=right}
@@ -111,18 +115,20 @@ linenos]{django}
 \end{minted}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Eco-System}
-  \begin{itemize}
-    \setlength\itemsep{1em}
-    \item \href{https://github.com/robshakir/pyangbind}{pyangbind}
-    \item \href{https://github.com/openconfig/ygot}{ygot}
-    \item \href{https://github.com/CiscoDevNet/ydk-gen}{YANG Development Kit (ydk-gen)}
-  \end{itemize}
+\begin{frame}{What I want \texttt{I}}
+\centering
+\animategraphics[autoplay, autopause, height = 0.8\textheight]{5}{animated/pydantify_demo}{00}{69}
 \end{frame}
 
 \begin{frame}
-  \frametitle{What I want}
+  \frametitle{What I want \texttt{II}}
+
+  \includegraphics[height = 0.8\textheight]{images/netconf-xml-artifact.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{What I want \texttt{III}}
   \begin{itemize}
     \setlength\itemsep{1em}
     \item Python objects with typing, validation and documentation
@@ -133,6 +139,18 @@ linenos]{django}
     \item Serialization / Deserialization
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{Eco-System}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item \href{https://github.com/robshakir/pyangbind}{pyangbind}
+    \item \href{https://github.com/openconfig/ygot}{ygot}
+    \item \href{https://github.com/CiscoDevNet/ydk-gen}{YANG Development Kit (ydk-gen)}
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}
   \frametitle{How it started}
