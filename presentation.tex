@@ -393,14 +393,76 @@ class EndpointContainer(BaseModel):
     \item Context-aware validation
     \item must / if / \dots
     \item xPath
-    \item bits / decimal64 representation
+    \item bits / decimal64 / empty representation
     \item RegEx
   \end{itemize}
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{The "empty" type \texttt{I}}
+      \begin{itshape}
+   An "empty" value is represented as "[null]", i.e., an array with the
+   "null" literal being its only element.  For the purposes of this
+   document, "[null]" is considered an atomic scalar value.
+\\
 
+   This encoding of the "empty" type was chosen instead of using simply
+   "null" in order to facilitate the use of empty leafs in common
+   programming languages where the "null" value of a member is treated
+   as if the member is not present.
+      \end{itshape}
+    \begin{flushright}
+        \underline{rfc7951}, Section 6.9
+    \end{flushright}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{The "empty" type \texttt{II}}
+
+  \begin{columns}
+        \column{.4\textwidth}
+        \begin{minted}[
+frame=none,
+framesep=2mm,
+baselinestretch=1.3,
+fontsize=\tiny]{yang}
+leaf foo {
+     type empty;
+   }
+\end{minted}
+        \column{.4\textwidth}
+        \begin{minted}[
+frame=none,
+framesep=2mm,
+baselinestretch=1.3,
+fontsize=\tiny]{json}
+"foo": [null]
+\end{minted}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The "empty" type \texttt{III}}
+
+        \begin{minted}[
+frame=none,
+framesep=2mm,
+baselinestretch=1.3,
+fontsize=\tiny]{python}
+class InterfaceContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+
+    primary: Annotated[
+        Optional[List[None]],
+        Field(alias="interface:primary", max_length=1, min_length=1),
+    ] = None
+\end{minted}
+
+\end{frame}
 
 {
 \setbeamercolor{background canvas}{bg=black}
